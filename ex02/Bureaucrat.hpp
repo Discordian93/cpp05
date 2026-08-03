@@ -5,7 +5,7 @@
 #include <exception>
 #include <iostream>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -37,7 +37,7 @@ class Bureaucrat
         void increaseGrade();
         void decreaseGrade();
         void signForm(AForm& form);
-        void executeForm(AForm& form);
+        void executeForm(const AForm& form) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);

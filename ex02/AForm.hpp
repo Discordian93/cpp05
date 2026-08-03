@@ -14,6 +14,9 @@ class AForm
         const int         _requiredSignGrade;
         const int         _requiredExecuteGrade;
 
+    protected:
+        virtual void executeAction(const Bureaucrat& executor) const = 0;
+
     public:
         class GradeTooHighException : public std::exception
         {
@@ -45,7 +48,6 @@ class AForm
         int getRequiredExecuteGrade() const;
         void beSigned(const Bureaucrat& bureaucrat);
         void execute(const Bureaucrat& executor) const;
-        virtual void executeAction(const Bureaucrat& executor) = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& f);
