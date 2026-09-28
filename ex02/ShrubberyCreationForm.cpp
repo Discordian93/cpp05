@@ -1,6 +1,11 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
+const char* ShrubberyCreationForm::FileOpenException::what() const throw()
+{
+    return ("could not open file");
+}
+
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
     : AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {
@@ -34,10 +39,7 @@ void ShrubberyCreationForm::executeAction(const Bureaucrat& executor) const
     std::ofstream outfile((_target + "_shrubbery").c_str());
 
     if (!outfile.is_open())
-    {
-        std::cout << "Error: could not create " << _target << "_shrubbery" << std::endl;
-        return;
-    }
+        throw FileOpenException();
 
     outfile << "       ###\n"
             << "      #####\n"

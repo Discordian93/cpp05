@@ -11,6 +11,11 @@ class ShrubberyCreationForm : public AForm
     protected:
         virtual void executeAction(const Bureaucrat& executor) const;
 
+    class FileOpenException : public std::exception
+    {
+        public:
+            virtual const char* what() const throw();
+    };
     public:
         ShrubberyCreationForm(std::string target);
         ShrubberyCreationForm(const ShrubberyCreationForm& other);

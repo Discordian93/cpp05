@@ -1,12 +1,22 @@
-NAME		= signing
+NAME		= bureaucrat
 
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp Bureaucrat.cpp Form.cpp
+SRCS		= main.cpp \
+			  Bureaucrat.cpp \
+			  AForm.cpp \
+			  ShrubberyCreationForm.cpp \
+			  RobotomyRequestForm.cpp \
+			  PresidentialPardonForm.cpp
+
 OBJS		= $(SRCS:.cpp=.o)
 
-HEADERS		= Bureaucrat.hpp Form.hpp
+HEADERS		= Bureaucrat.hpp \
+			  AForm.hpp \
+			  ShrubberyCreationForm.hpp \
+			  RobotomyRequestForm.hpp \
+			  PresidentialPardonForm.hpp
 
 all: $(NAME)
 
